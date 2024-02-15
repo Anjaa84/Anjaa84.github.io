@@ -1,0 +1,140 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.16/MicrosoftTeams.schema.json",
+  "version": "1.0.0",
+  "manifestVersion": "1.16",
+  "id": "592df075-2cb2-46d4-b8fd-cb6a9841e232",
+  "packageName": "com.package.name",
+  "name": {
+    "short": "Humanised",
+    "full": ""
+  },
+  "developer": {
+    "name": "Betalaunch",
+    "mpnId": "",
+    "websiteUrl": "https://www.example.com",
+    "privacyUrl": "https://www.example.com/termofuse",
+    "termsOfUseUrl": "https://www.example.com/privacy"
+  },
+  "description": {
+    "short": "Short description",
+    "full": "Full description"
+  },
+  "icons": {
+    "outline": "outline.png",
+    "color": "color.png"
+  },
+  "connectors": [
+    {
+      "connectorId": "592df075-2cb2-46d4-b8fd-cb6a9841e232",
+      "scopes": ["team"],
+      "configurationUrl": "https://d435-2402-d000-8134-f089-7968-5a8d-fd3e-45c3.ngrok-free.app/config"
+    }
+  ],
+  "webApplicationInfo": {
+    "id": "592df075-2cb2-46d4-b8fd-cb6a9841e232",
+    "resource": "https://d435-2402-d000-8134-f089-7968-5a8d-fd3e-45c3.ngrok-free.app"
+  },
+  "accentColor": "#FFFFFF",
+  "bots": [
+    {
+      "botId": "edc3642f-3af8-4e28-8366-f93c560c3f54",
+      "scopes": ["team"],
+      "commandLists": [
+        {
+          "commands": [
+            {
+              "title": "Humanised bot",
+              "description": "Helps to configure humanized sleaves"
+            }
+          ],
+          "scopes": ["team"]
+        }
+      ],
+      "isNotificationOnly": false,
+      "supportsCalling": false,
+      "supportsVideo": false,
+      "supportsFiles": false
+    }
+  ],
+  "composeExtensions": [
+    {
+      "botId": "edc3642f-3af8-4e28-8366-f93c560c3f54",
+      "commands": [
+        {
+          "id": "createCard",
+          "context": ["compose"],
+          "description": "Command to run action to create a Card from Compose Box",
+          "title": "Create Card",
+          "type": "action",
+          "parameters": [
+            {
+              "name": "Team Name",
+              "title": "Teams name",
+              "description": "Teams name mock",
+              "inputType": "text"
+            },
+            {
+              "name": "subTitle",
+              "title": "Subtitle",
+              "description": "Subtitle for the card",
+              "inputType": "text"
+            },
+            {
+              "name": "text",
+              "title": "Text",
+              "description": "Text for the card",
+              "inputType": "textarea"
+            }
+          ]
+        },
+        {
+          "id": "shareMessage",
+          "context": ["message"],
+          "description": "Test command to run action on message context (message sharing)",
+          "title": "Share Message",
+          "type": "action",
+          "parameters": [
+            {
+              "name": "includeImage",
+              "title": "Include Image",
+              "description": "Include image in Hero Card",
+              "inputType": "toggle"
+            }
+          ]
+        },
+        {
+          "id": "searchQuery",
+          "context": ["compose", "commandBox"],
+          "description": "Test command to run query",
+          "title": "Search",
+          "type": "query",
+          "parameters": [
+            {
+              "name": "searchQuery",
+              "title": "Search Query",
+              "description": "Your search query",
+              "inputType": "text"
+            }
+          ]
+        }
+      ],
+      "messageHandlers": [
+        {
+          "type": "link",
+          "value": {
+            "domains": ["*.botframework.com"]
+          }
+        }
+      ]
+    }
+  ],
+  "validDomains": [
+    "0ca9-2402-d000-8134-f089-7968-5a8d-fd3e-45c3.ngrok-free.app"
+  ],
+  "showLoadingIndicator": true,
+  "defaultGroupCapability": {
+    "team": "bot",
+    "groupchat": "bot",
+    "meetings": "bot"
+  }
+}
